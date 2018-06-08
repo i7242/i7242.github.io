@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html>
+    <!-- title -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="Xingyu YAN">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Xingyu YAN">
+    <meta name="keywords" content="Xingyu | Xingyu YAN">
+    <meta name="description" content="">
+    <meta name="Cache-Control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>Tolerance Synthesis Example · Xingyu YAN</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s 1;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= /css/style.css?v=20180604 as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= /css/mobile.css?v=20180604 media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/assets/homepage_icon.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Xingyu&#39;s Studio</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Tolerance Synthesis Example</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>Xingyu's Studio</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style=
+
+
+
+
+
+
+
+
+height:50vh;
+
+>
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/Mechanic.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            Tolerance Synthesis Example
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Mechanic">Mechanic</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count">2,369</span> / Reading time: <span class="post-count">15 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/05/29</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <blockquote>
+<p>A simple tolerance synthesis example is conducted. The tolerance analysis is based on Jacobian-Torsor mordel. Genetic Algorithm (GA) is used to minimize the manufacturing cost while the precision requirements are guaranteed.<br>The used GA is from <strong>DEAP</strong>: <em><a href="https://github.com/DEAP/deap" target="_blank" rel="noopener">https://github.com/DEAP/deap</a></em></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># first import packages</span></span><br><span class="line"></span><br><span class="line">%matplotlib inline</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">np.set_printoptions(precision=<span class="number">4</span>,suppress=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> deap <span class="keyword">import</span> base</span><br><span class="line"><span class="keyword">from</span> deap <span class="keyword">import</span> creator</span><br><span class="line"><span class="keyword">from</span> deap <span class="keyword">import</span> tools</span><br></pre></td></tr></table></figure>
+<h1 id="Analysis-Model"><a href="#Analysis-Model" class="headerlink" title="Analysis Model"></a>Analysis Model</h1><p>The model used here is a simple model, which the optimization result can be expected.<br>This is helpful to verify the optimization result. The model is shown as below:</p>
+<p><img src="\images\GA-Model.png" alt=""></p>
+<p>The <strong>Part A</strong> (blue color) is assumed to be fixed, its interial cylinder surface  a  has translation and rotation deviations relative to the center point  o . The center point  o  is the origen of local coordinate system of cylinder surface  a . To make the analysis easy, center points of features are illustrated in the figure. The axes of local coordinate systems are aligned whith the local coordinate system of cylinder surface  a . However, to avoid to many arrows in the figure, they are not shown.</p>
+<p>Cylinder surface  b  on <strong>Part B</strong> is assumed to mate with cylinder surface  a . There exist no gaps between them. The functional dimensions are the position and orientation of cylinder surface  c  on the other hand of <strong>Part B</strong>. Surface  c  has deviation relative to surface  b . To be simple to explain the optimization result, we assume <strong>Part A</strong> and <strong>Part B</strong> cost the same for certain precision value (e.g., they have same cost function).</p>
+<p>The statistical characteristics, mean and standard deviation, are used to evaluate the part/assembly precision (or manufacturing deviation). Thousands of simulations will be conducted. Therefore the first step is to define a function to conduct this simulation and return the results.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># function to conduct tolerance analysis</span></span><br><span class="line"><span class="comment"># mont carlo simulation</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calDev</span> <span class="params">(fe_sigma,n_mc)</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># fe_sigma: the deviation of single feature follows N(0,sigma) distributation</span></span><br><span class="line">    <span class="comment">#           for the deviaiton on different parts and along different directions, their sigma could be different</span></span><br><span class="line">    <span class="comment"># n_mc: number of random simulation cases for Mont Carlo simulation</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># define the Jacobian matrix J1 for J_c/a</span></span><br><span class="line">    W1 = np.mat([[<span class="number">0</span>,<span class="number">-40</span>,<span class="number">60</span>],[<span class="number">40</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">-60</span>,<span class="number">0</span>,<span class="number">0</span>]])</span><br><span class="line">    J1 = np.identity(<span class="number">6</span>)</span><br><span class="line">    J1[<span class="number">0</span>:<span class="number">3</span>,<span class="number">3</span>:<span class="number">6</span>] = W1</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># define the Jacobian matrix J2 for J_c/c</span></span><br><span class="line">    W2 = np.mat([[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]])</span><br><span class="line">    J2 = np.identity(<span class="number">6</span>)</span><br><span class="line">    J2[<span class="number">0</span>:<span class="number">3</span>,<span class="number">3</span>:<span class="number">6</span>] = W2</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># gather the matrices</span></span><br><span class="line">    JJ = np.concatenate((J1,J2),axis=<span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># statistical analysis</span></span><br><span class="line">    <span class="comment"># "fe" is the random deviation value for functional elements</span></span><br><span class="line">    fe = np.zeros((len(fe_sigma),n_mc))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(fe_sigma)):</span><br><span class="line">        <span class="comment"># each row in "fe" forms the distributation of one torsor variable</span></span><br><span class="line">        <span class="comment"># each column in "fe" forms a group of complete displacement torsor (randomly generated) for all the features</span></span><br><span class="line">        fe[i,:] = np.random.normal(<span class="number">0</span>,fe_sigma[i],n_mc)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># after generated the manufacturing deviation, the assembly simulation is just the matrix multiplication</span></span><br><span class="line">    dev = np.dot(JJ,fe)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># in this case, the cylinder displacement along/around "Z" axis is not concerned</span></span><br><span class="line">    <span class="comment"># set deviation along "Z" axis to be zero, to not affect the optimization result</span></span><br><span class="line">    dev[[<span class="number">2</span>,<span class="number">5</span>]] = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># calculate standard deviation of assembly simulation result</span></span><br><span class="line">    dev_sigma = np.zeros(len(dev))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(dev)):</span><br><span class="line">        dev_sigma[i] = np.std(dev[i,:])</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># statistical characteristics of the simulation is returned</span></span><br><span class="line">    <span class="keyword">return</span> dev_sigma</span><br></pre></td></tr></table></figure>
+<h1 id="Precision-Requirements"><a href="#Precision-Requirements" class="headerlink" title="Precision Requirements"></a>Precision Requirements</h1><p>The precision requirements are applied on the deviation of cylinder  T_{c/o} . They are considered as constraints in the optimization problem. In Genetic Algorithm provided in DEAP, penalty functions are used to introduce these constraints.</p>
+<p>Here we just give an example of the devination of requirements. They should be defined in “feasible” function.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dev_lmt = [<span class="number">0.2</span>,<span class="number">0.2</span>,<span class="number">0.2</span>,<span class="number">0.01</span>,<span class="number">0.01</span>,<span class="number">0.01</span>]</span><br></pre></td></tr></table></figure>
+<h1 id="Cost-Tolerance-Functions"><a href="#Cost-Tolerance-Functions" class="headerlink" title="Cost-Tolerance Functions"></a>Cost-Tolerance Functions</h1><p>For cost function, its shape and parameters are importent.<br>The used function is shown as below. Detailed parameters need to be determined.</p>
+<p>More cost functions can be established, and the princple and method are the same.<br>Additionally, the cost for rotational precision is scaled by  1e^3 . Alternatively, defferent cost functions can be introduced for different torsor variables.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">tol = np.linspace(<span class="number">0.001</span>,<span class="number">0.05</span>,<span class="number">100</span>)</span><br><span class="line">cost = <span class="number">1e5</span>*np.exp(<span class="number">-100</span>*tol)</span><br><span class="line"></span><br><span class="line">fig_cost_tol = plt.figure()</span><br><span class="line">ax1 = fig_cost_tol.add_subplot(<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">ax1.plot(tol,cost)</span><br><span class="line">ax1.legend(<span class="string">'Cost Function'</span>,loc=<span class="string">'upper right'</span>)</span><br><span class="line">ax1.set_xlabel(<span class="string">'Tolerance'</span>)</span><br><span class="line">ax1.set_ylabel(<span class="string">'Cost'</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="\images\GA-CostCurve.png" alt=""></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># calculate manufacturing cost</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calCost</span><span class="params">(individual)</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># for one combination of statistical characteristics of functional elements,</span></span><br><span class="line">    <span class="comment"># e.g. one individual in Genetic Algorithm,</span></span><br><span class="line">    <span class="comment"># the cost function gives a value</span></span><br><span class="line">    <span class="comment"># it is set to be zero, and then accumulate</span></span><br><span class="line">    cost = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># there are two parts, and two torsor vectors (12 torsor variables)</span></span><br><span class="line">    <span class="comment"># the range for "i" is 2 (2 parts)</span></span><br><span class="line">    <span class="comment"># the range for "j" is 6 (each has 6 torsor varibale)</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">6</span>):</span><br><span class="line">            </span><br><span class="line">            idx = i*<span class="number">6</span>+j</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># the translation and rotation around "Z" axis is not concerned</span></span><br><span class="line">            <span class="comment"># they are ignored when calculate manufacturing cost</span></span><br><span class="line">            <span class="keyword">if</span> (j&lt;<span class="number">2</span>):</span><br><span class="line">                cost = cost + <span class="number">1e2</span>*np.exp(-individual[idx]) <span class="comment"># the first 3 is for translation deviation</span></span><br><span class="line">            <span class="keyword">elif</span> <span class="number">2</span>&lt;j&lt;<span class="number">5</span>:</span><br><span class="line">                cost = cost + <span class="number">1e5</span>*np.exp(-individual[idx]) <span class="comment"># the last 3 is for rotation deviation</span></span><br><span class="line">            </span><br><span class="line">    <span class="keyword">return</span> cost, <span class="comment"># don't forget the ","</span></span><br></pre></td></tr></table></figure>
+<h1 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h1><p>The constraints contains two parts:</p>
+<ul>
+<li>the precision requirements on functional dimensions<ul>
+<li>is the calculated  dev_{sigma}  is larger than  dev_{lmt} , it violate the constraint</li>
+</ul>
+</li>
+<li>the precision requirements on functional elements<ul>
+<li>the upper bound of functional element deviation is expressed in precision requirement implicitly</li>
+<li>the upper bound of functional element deviation is also influenced by individual initialization (due to the algorithm and detaild configurations)</li>
+<li>the lower bound of functional element deviation is added as constraint, science:<ul>
+<li>the limitation of the cost function we use. it give a large value when the deviation sigma is zero (perferct condition). however infact is should be infinitely large. that is, cost function has a significant interval</li>
+<li>the individuals are not totally random generated. to accelerate the convergence of the algorithm, they are initialized in a reasonable value based on engineering experience</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># chech the feasibility of solutions/individuals</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">feasible</span><span class="params">(individual)</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># set a lower limit, which the precision don't go beyond it</span></span><br><span class="line">    <span class="comment"># here it is set as "0.00001" arbitrarily</span></span><br><span class="line">    <span class="keyword">if</span> min(individual)&gt;<span class="number">0.00001</span>:</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># mont carlo simulation is conducted with 100 random samples</span></span><br><span class="line">        <span class="comment"># this value can be increased to get more stable result, but cost more time</span></span><br><span class="line">        dev_sigma = calDev(individual,<span class="number">100</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># precision requirements on functional dimension</span></span><br><span class="line">        dev_lmt = [<span class="number">0.5</span>,<span class="number">0.5</span>,<span class="number">0.5</span>,<span class="number">0.1</span>,<span class="number">0.1</span>,<span class="number">0.1</span>]</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># evaluate if there exist deviation sigma that does not satisfy precision requirement</span></span><br><span class="line">        <span class="comment"># True == 1, False == 0</span></span><br><span class="line">        <span class="keyword">return</span> min(dev_sigma.transpose()&lt;dev_lmt)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># this is corresponding to the "0.00001" limit deviend above</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br></pre></td></tr></table></figure>
+<h1 id="Genetic-Algorithm"><a href="#Genetic-Algorithm" class="headerlink" title="Genetic Algorithm"></a>Genetic Algorithm</h1><p>This is the implementation of Genetic Algorithm to conduct optimization.<br>For more details and explaination, please visit their websites.</p>
+<blockquote>
+<p>Page of example:<br><a href="http://deap.readthedocs.io/en/master/examples/ga_onemax.html" target="_blank" rel="noopener">http://deap.readthedocs.io/en/master/examples/ga_onemax.html</a><br>Add constraints by penalty function:<br><a href="https://deap.readthedocs.io/en/master/tutorials/advanced/constraints.html?highlight=constraint" target="_blank" rel="noopener">https://deap.readthedocs.io/en/master/tutorials/advanced/constraints.html?highlight=constraint</a></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># CostMin: the objective is to minimize the manufacturing cost</span></span><br><span class="line">creator.create(<span class="string">"CostMin"</span>, base.Fitness, weights=(<span class="number">-1.0</span>,))</span><br><span class="line"></span><br><span class="line"><span class="comment"># creat class of individual</span></span><br><span class="line">creator.create(<span class="string">"Individual"</span>, list, fitness=creator.CostMin)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Toolbox: a group of functions used latter, this make the tool easy to use</span></span><br><span class="line">toolbox = base.Toolbox()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Attribute generator </span></span><br><span class="line"><span class="comment"># initially randomly chose values in a range</span></span><br><span class="line"><span class="comment"># the boundary will be defined "feasible" function as constraints</span></span><br><span class="line"><span class="comment"># it may be better to chose uniform to cover all the range</span></span><br><span class="line"><span class="comment"># it is not clear whether the initialization range will influence the solution range, this will be checked latter</span></span><br><span class="line">toolbox.register(<span class="string">"attr_bool"</span>, np.random.uniform, <span class="number">0.001</span>, <span class="number">0.2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Structure initializers</span></span><br><span class="line"><span class="comment"># there are two parts in this model, totaly 12 torsor variables</span></span><br><span class="line">toolbox.register(<span class="string">"individual"</span>, tools.initRepeat, creator.Individual,toolbox.attr_bool, <span class="number">12</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># the number of individuals in a population will be given latter</span></span><br><span class="line">toolbox.register(<span class="string">"population"</span>, tools.initRepeat, list, toolbox.individual)</span><br><span class="line"></span><br><span class="line"><span class="comment"># regist the cost function to be evaluated. its value is the minimization objective</span></span><br><span class="line">toolbox.register(<span class="string">"evaluate"</span>, calCost)</span><br><span class="line"></span><br><span class="line"><span class="comment"># penalty function based method is used to add constraints</span></span><br><span class="line"><span class="comment"># here constant penalty values are used, e.g. 1e30</span></span><br><span class="line"><span class="comment"># look up the website of DEAP for more information</span></span><br><span class="line">toolbox.decorate(<span class="string">"evaluate"</span>, tools.DeltaPenalty(feasible, <span class="number">1e30</span>,))</span><br><span class="line"></span><br><span class="line"><span class="comment"># these are initially suggested parameters, may be customized latter</span></span><br><span class="line">toolbox.register(<span class="string">"mate"</span>, tools.cxTwoPoint)</span><br><span class="line">toolbox.register(<span class="string">"mutate"</span>, tools.mutFlipBit, indpb=<span class="number">0.05</span>)</span><br><span class="line">toolbox.register(<span class="string">"select"</span>, tools.selTournament, tournsize=<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># the main function to exactuate optimization</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># large population is important</span></span><br><span class="line">    <span class="comment"># this value "n" can be changed</span></span><br><span class="line">    pop = toolbox.population(n=<span class="number">100000</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Evaluate the entire population</span></span><br><span class="line">    fitnesses = list(map(toolbox.evaluate, pop))</span><br><span class="line">    <span class="keyword">for</span> ind, fit <span class="keyword">in</span> zip(pop, fitnesses):</span><br><span class="line">        ind.fitness.values = fit</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Extracting all the fitnesses of </span></span><br><span class="line">    fits = [ind.fitness.values[<span class="number">0</span>] <span class="keyword">for</span> ind <span class="keyword">in</span> pop]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Variable keeping track of the number of generations</span></span><br><span class="line">    g = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># the possibility of mating and mutation should be defined by ourself</span></span><br><span class="line">    <span class="comment"># suitable parameter may generate better solution efficiently</span></span><br><span class="line">    <span class="comment"># however, the value can be tested randomly in a first time</span></span><br><span class="line">    CXPB = <span class="number">0.5</span></span><br><span class="line">    MUTPB = <span class="number">0.02</span></span><br><span class="line">    </span><br><span class="line">    min_fits = np.zeros(<span class="number">100</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Begin the evolution</span></span><br><span class="line">    <span class="comment"># here the simulation won't stop untile 30 generations are generated and evaluated</span></span><br><span class="line">    <span class="comment"># better stop criteria can be chosed to avoid unnecessary calculation</span></span><br><span class="line">    <span class="keyword">while</span> g &lt; <span class="number">100</span>:</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># A new generation</span></span><br><span class="line">        g = g + <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        print(<span class="string">"-- Generation %i --"</span> % g)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Select the next generation individuals</span></span><br><span class="line">        offspring = toolbox.select(pop, len(pop))</span><br><span class="line">        <span class="comment"># Clone the selected individuals</span></span><br><span class="line">        offspring = list(map(toolbox.clone, offspring))</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Apply crossover and mutation on the offspring</span></span><br><span class="line">        <span class="keyword">for</span> child1, child2 <span class="keyword">in</span> zip(offspring[::<span class="number">2</span>], offspring[<span class="number">1</span>::<span class="number">2</span>]):</span><br><span class="line">            <span class="keyword">if</span> random.random() &lt; CXPB:</span><br><span class="line">                toolbox.mate(child1, child2)</span><br><span class="line">                <span class="keyword">del</span> child1.fitness.values</span><br><span class="line">                <span class="keyword">del</span> child2.fitness.values</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> mutant <span class="keyword">in</span> offspring:</span><br><span class="line">            <span class="keyword">if</span> random.random() &lt; MUTPB:</span><br><span class="line">                toolbox.mutate(mutant)</span><br><span class="line">                <span class="keyword">del</span> mutant.fitness.values</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Evaluate the individuals with an invalid fitness</span></span><br><span class="line">        invalid_ind = [ind <span class="keyword">for</span> ind <span class="keyword">in</span> offspring <span class="keyword">if</span> <span class="keyword">not</span> ind.fitness.valid]</span><br><span class="line">        fitnesses = map(toolbox.evaluate, invalid_ind)</span><br><span class="line">        <span class="keyword">for</span> ind, fit <span class="keyword">in</span> zip(invalid_ind, fitnesses):</span><br><span class="line">            ind.fitness.values = fit</span><br><span class="line">        </span><br><span class="line">        pop[:] = offspring</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Gather all the fitnesses in one list and print the stats</span></span><br><span class="line">        fits = [ind.fitness.values[<span class="number">0</span>] <span class="keyword">for</span> ind <span class="keyword">in</span> pop]</span><br><span class="line">        </span><br><span class="line">        length = len(pop)</span><br><span class="line">        mean = sum(fits) / length</span><br><span class="line">        sum2 = sum(x*x <span class="keyword">for</span> x <span class="keyword">in</span> fits)</span><br><span class="line">        std = abs(sum2 / length - mean**<span class="number">2</span>)**<span class="number">0.5</span></span><br><span class="line">        </span><br><span class="line">        print(<span class="string">"  Min %s"</span> % min(fits))</span><br><span class="line">        print(<span class="string">"  Max %s"</span> % max(fits))</span><br><span class="line">        print(<span class="string">"  Avg %s"</span> % mean)</span><br><span class="line">        print(<span class="string">"  Std %s"</span> % std)</span><br><span class="line">        </span><br><span class="line">        min_fits[g<span class="number">-1</span>] = min(fits)</span><br><span class="line">        </span><br><span class="line">    <span class="comment"># out put the optimial solution</span></span><br><span class="line">    <span class="comment"># or modify to out put all the solutions</span></span><br><span class="line">    <span class="keyword">return</span> pop[fits.index(min(fits))], min_fits</span><br></pre></td></tr></table></figure>
+<p>Several times of optimization may be conducted and chose suitable solution among them.<br>This is due to:</p>
+<ul>
+<li>the uncertainty in Genetic Algorithm</li>
+<li>the uncertainty in tolerance analysis method</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># conduct simulation, and out put best_individual</span></span><br><span class="line">best_individual,min_fits = main()</span><br></pre></td></tr></table></figure>
+<pre><code>-- Generation 1 --
+  Min 390274.5683189116
+  Max 1e+30
+  Avg 9.999800000006981e+29
+  Std 4.4720911372849653e+27
+-- Generation 2 --
+  Min 390274.5683189116
+  Max 1e+30
+  Avg 9.999500000006982e+29
+  Std 7.070890972136945e+27
+  .
+  .
+  .
+-- Generation 100 --
+  Min 376933.62309583114
+  Max 1e+30
+  Avg 6.3084000000072824e+29
+  Std 4.825773455099222e+29
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fig_min_fits = plt.figure()</span><br><span class="line">ax = fig_min_fits.add_subplot(<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">ax.plot(range(<span class="number">1</span>,<span class="number">101</span>),min_fits)</span><br><span class="line">ax.legend(<span class="string">'Minimum Cost'</span>,loc=<span class="string">'upper right'</span>)</span><br><span class="line">ax.set_xlabel(<span class="string">'No. Generation'</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">'Cost'</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="\images\GA-CostValue.png" alt=""></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">'Best individual:\n'</span>)</span><br><span class="line">print(<span class="string">'Standard deviation for cylinder surface "a":\n'</span>)</span><br><span class="line">print(best_individual[<span class="number">0</span>:<span class="number">6</span>],<span class="string">'\n'</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'Standard deviation for cylinder surface "c":\n'</span>)</span><br><span class="line">print(best_individual[<span class="number">6</span>:<span class="number">12</span>],<span class="string">'\n'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># take the best_individual bact to tolerance analysis, to see the result</span></span><br><span class="line">dev_sigma = calDev(best_individual,<span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'dev_lmt:\n'</span>)</span><br><span class="line">print(dev_lmt,<span class="string">'\n'</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'dev_sigma:\n'</span>)</span><br><span class="line">print(dev_sigma,<span class="string">'\n'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Best individual:
+
+Standard deviation for cylinder surface &quot;a&quot;:
+
+[0.16598003830320762, 0.13378330421001133, 0.10611163097278713, 0.011410896805905981, 0.010526833121261632, 0.0010602705958070793] 
+
+Standard deviation for cylinder surface &quot;c&quot;:
+
+[0.14536197193417982, 0.1597641871455093, 0.085396223763405, 0.11802121158649645, 0.106430208210369, 0.08707067920001273] 
+
+dev_lmt:
+
+[0.2, 0.2, 0.2, 0.01, 0.01, 0.01] 
+
+dev_sigma:
+
+[0.4963 0.4949 0.     0.1221 0.1047 0.    ]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">d1=best_individual[<span class="number">0</span>:<span class="number">2</span>]</span><br><span class="line">d1.extend(best_individual[<span class="number">3</span>:<span class="number">5</span>])</span><br><span class="line"></span><br><span class="line">d2=best_individual[<span class="number">6</span>:<span class="number">8</span>]</span><br><span class="line">d2.extend(best_individual[<span class="number">9</span>:<span class="number">11</span>])</span><br><span class="line"></span><br><span class="line">fig_compare = plt.figure()</span><br><span class="line">ax = fig_compare.add_subplot(<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">ax.plot(range(<span class="number">1</span>,<span class="number">5</span>),d1,label=<span class="string">'Part A'</span>)</span><br><span class="line">ax.plot(range(<span class="number">1</span>,<span class="number">5</span>),d2,label=<span class="string">'Part B'</span>)</span><br><span class="line">ax.legend(loc=<span class="string">'upper right'</span>)</span><br><span class="line">ax.set_xlabel(<span class="string">'No. Torsor Variable'</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">'Standard Deviation'</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="\images\GA-Best.png" alt=""></p>
+<h1 id="Optimization-Result"><a href="#Optimization-Result" class="headerlink" title="Optimization Result"></a>Optimization Result</h1><ul>
+<li>Part A and Part B have similar standard deviation for translation torsor variable. However, Part A need to increase its orientation precision to guarantee the functional requirements are satisfied, when reducing the cost.Compared to Part A, the orientation deviation on Part B is less significant.</li>
+<li>Currently, all the value of parameters are given roughly corresponding to experience. Therefor the result only shows the trends.</li>
+</ul>
+
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者: <a href="http://i7242.github.io">Xingyu YAN</a>
+            <p>原文链接: <a href="http://i7242.github.io/2018/05/29/Tolerance-Synthesis-Example/">http://i7242.github.io/2018/05/29/Tolerance-Synthesis-Example/</a>
+            <p>发表日期: <a href="http://i7242.github.io/2018/05/29/Tolerance-Synthesis-Example/">May 29th 2018, 6:18:37</a>
+            <p>版权声明: 本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2018/05/31/A-Montreal/" title= À Montréal >
+                    <div class="nextTitle">À Montréal</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!--PC版-->
+
+    <!--PC版-->
+
+
+    
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:xingyuyan@outlook.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/i7242" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/i7242QR.jpg" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Analysis-Model"><span class="toc-number">1.</span> <span class="toc-text">Analysis Model</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Precision-Requirements"><span class="toc-number">2.</span> <span class="toc-text">Precision Requirements</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cost-Tolerance-Functions"><span class="toc-number">3.</span> <span class="toc-text">Cost-Tolerance Functions</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Constraints"><span class="toc-number">4.</span> <span class="toc-text">Constraints</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Genetic-Algorithm"><span class="toc-number">5.</span> <span class="toc-text">Genetic Algorithm</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Optimization-Result"><span class="toc-number">6.</span> <span class="toc-text">Optimization Result</span></a></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 5
+        <!-- search  -->
+        </div>
+            <div class="site-search popup-trigger">
+                <span class="iconfont-archer search-icon">&#xe627;</span>
+            </div>
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/07</span><a class="archive-post-title" href= "/2018/06/07/Generation-of-consistent-skin-model-shape-based-on-FEA-method/" >Generation of Skin Model Shapes</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/02</span><a class="archive-post-title" href= "/2018/06/02/Virtual-metrology-laboratory-for-e-learning/" >Virtual Metrology Laboratory for E-Learning</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/31</span><a class="archive-post-title" href= "/2018/05/31/Cusine/" >Cusine</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/31</span><a class="archive-post-title" href= "/2018/05/31/A-Montreal/" >À Montréal</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/29</span><a class="archive-post-title" href= "/2018/05/29/Tolerance-Synthesis-Example/" >Tolerance Synthesis Example</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="Photo"><span class="iconfont-archer">&#xe606;</span>Photo</span>
+    
+        <span class="sidebar-tag-name" data-tags="Mechanic"><span class="iconfont-archer">&#xe606;</span>Mechanic</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="Tout-Les-Jour"><span class="iconfont-archer">&#xe60a;</span>Tout-Les-Jour</span>
+    
+        <span class="sidebar-category-name" data-categories="Learning"><span class="iconfont-archer">&#xe60a;</span>Learning</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "Xingyu YAN"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
