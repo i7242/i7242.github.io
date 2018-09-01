@@ -265,7 +265,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">184</span> / Reading time: <span class="post-count">1 min</span></span>
+                        <span>Word count: <span class="post-count">293</span> / Reading time: <span class="post-count">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -398,14 +398,21 @@ height:50vh;
 <blockquote>
 <p>Yan X, Ballu A. Tolerance analysis using skin model shapes and linear complementarity conditions[J]. Journal of Manufacturing Systems, 2018, 48: 140-156.<br><a href="https://www.sciencedirect.com/science/article/pii/S0278612518302048" target="_blank" rel="noopener">https://www.sciencedirect.com/science/article/pii/S0278612518302048</a></p>
 </blockquote>
-<p>Tolerance analysis tries to predict the precision of mechanical product assembly. Based on tolerance analysis, optimization can be conducted to either increase product precision or reduce manufacturing cost.</p>
-<p>Triditional tolerance analysis models were based on ideal features (primitives such as plane, cylinder and sphere). These methods fit the current Computer Aided Design (CAD) systems well, but oversimplified the problem.</p>
+<p>Tolerance analysis tries to predict the precision of mechanical product assembly. Based on tolerance analysis, optimization can be conducted to either increase the product precision or reduce the manufacturing cost.</p>
+<p>Triditional tolerance analysis models were based on ideal features (primitives such as plane, cylinder and sphere). These methods fit the current Computer Aided Design (CAD) systems well, but oversimplified the problem. Form errors need to be introduced to meet the demands.</p>
 <p>Non-ideal feature based model (Skin Model Shape) were used to express multi-scale deviations on manufactured part. Following figure shows how the form error is simulated and how the model is generated. Details and codes can be found in:</p>
 <blockquote>
 <p>Yan X, Ballu A. Generation of consistent skin model shape based on FEA method[J]. The International Journal of Advanced Manufacturing Technology, 2017, 92(1-4): 789-802.<br><a href="https://link.springer.com/article/10.1007/s00170-017-0177-5" target="_blank" rel="noopener">https://link.springer.com/article/10.1007/s00170-017-0177-5</a></p>
 </blockquote>
 <p><img src="\images\SMS-LCC\SMSGen.png" alt="SMSGen"></p>
-
+<h1 id="Proposed-Solution"><a href="#Proposed-Solution" class="headerlink" title="Proposed Solution"></a>Proposed Solution</h1><p>Linear Complementarity Condition (LCC) based methods were used in multi-body dynamics. Our method is inspaired by LCC.When mating surfaces are contacted:</p>
+<ul>
+<li>distance between contact points are zero, but reaction forces between these points are possitive:<br>D=0, F&gt;=0</li>
+<li>distance between non contact points can bigger than zero, but there exist no reaction forces:<br>D&gt;0, F=0</li>
+</ul>
+<p>Based on this simple principle, we transformed the assembly simulation problem to a quadratic optimization problem. Additional constraints are also added to express the balance of the system. Problem formulation is shown as below:</p>
+<p><img src="\images\SMS-LCC\LCC-Formular.png" alt="LCC-Formular"></p>
+<h1 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h1>
     </article>
     <!-- license  -->
     
@@ -539,7 +546,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Proposed-Solution"><span class="toc-number">2.</span> <span class="toc-text">Proposed Solution</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Examples"><span class="toc-number">3.</span> <span class="toc-text">Examples</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -552,6 +559,10 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
     
     
     
