@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Tolerance Analysis using Skin Model Shapes and LCC · Xingyu YAN</title>
+    <title>Virtual Metrology Laboratory for E-Learning · Xingyu YAN</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -208,7 +208,7 @@
                 <a href="/" >Xingyu&#39;s Studio</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Tolerance Analysis using Skin Model Shapes and LCC</a>
+                <a href="#" class="post-name">Virtual Metrology Laboratory for E-Learning</a>
             </div>
     </div>
     
@@ -240,7 +240,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Tolerance Analysis using Skin Model Shapes and LCC
+            Virtual Metrology Laboratory for E-Learning
             <!-- 404 -->
             
         </h1>
@@ -265,12 +265,12 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">376</span> / Reading time: <span class="post-count">2 min</span></span>
+                        <span>Word count: <span class="post-count">89</span> / Reading time: <span class="post-count">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2018/09/01</span>
+                    <span class="post-intro-time">2018/06/02</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -394,36 +394,27 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>This is a part of my PhD jobs. For more information, please refer to:  </p>
+        <p>A Virtual Laboratory project was funded by <strong><em>Université de Bordeaux</em></strong>.<br>The video shows a simple measurement operation using caliper.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/c2Kuf2EE0kY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<p>Both part geometrical defects and measurement uncertainties can be considered.<br>Please refer to following paper and website for more details.</p>
 <blockquote>
-<p>Yan X, Ballu A. Tolerance analysis using skin model shapes and linear complementarity conditions[J]. Journal of Manufacturing Systems, 2018, 48: 140-156.<br><a href="https://www.sciencedirect.com/science/article/pii/S0278612518302048" target="_blank" rel="noopener">https://www.sciencedirect.com/science/article/pii/S0278612518302048</a></p>
+<p>Ballu A, Yan X, Blanchard A, et al. Virtual metrology laboratory for e-learning[J]. Procedia CIRP, 2016, 43: 148-153.<br><a href="https://www.sciencedirect.com/science/article/pii/S2212827116003929" target="_blank" rel="noopener">https://www.sciencedirect.com/science/article/pii/S2212827116003929</a></p>
 </blockquote>
-<p>Tolerance analysis tries to predict the precision of mechanical product assembly. Based on tolerance analysis, optimization can be conducted to either increase the product precision or reduce the manufacturing cost.</p>
-<p>Triditional tolerance analysis models were based on ideal features (primitives such as plane, cylinder and sphere). These methods fit the current Computer Aided Design (CAD) systems well, but oversimplified the problem. Form errors need to be introduced to meet the demands.</p>
-<p>Non-ideal feature based model (Skin Model Shape) were used to express multi-scale deviations on manufactured part. Following figure shows how the form error is simulated and how the model is generated. Details and codes can be found in:</p>
 <blockquote>
-<p>Yan X, Ballu A. Generation of consistent skin model shape based on FEA method[J]. The International Journal of Advanced Manufacturing Technology, 2017, 92(1-4): 789-802.<br><a href="https://link.springer.com/article/10.1007/s00170-017-0177-5" target="_blank" rel="noopener">https://link.springer.com/article/10.1007/s00170-017-0177-5</a></p>
+<p>I2M (Institut de Mécanique et d’Ingénierie)<br><a href="https://www.i2m.u-bordeaux.fr/" target="_blank" rel="noopener">https://www.i2m.u-bordeaux.fr/</a></p>
 </blockquote>
-<p><img src="\images\SMS-LCC\SMSGen.png" alt="SMSGen"></p>
-<h1 id="Proposed-Solution"><a href="#Proposed-Solution" class="headerlink" title="Proposed Solution"></a>Proposed Solution</h1><p>Linear Complementarity Condition (LCC) based methods were used in multi-body dynamics. Our method is inspaired by LCC.When mating surfaces are contacted:</p>
-<ul>
-<li>distance between contact points are zero, but reaction forces between these points are possitive:<br>D=0, F&gt;=0</li>
-<li>distance between non contact points can bigger than zero, but there exist no reaction forces:<br>D&gt;0, F=0</li>
-</ul>
-<p>Based on this simple principle, we transformed the assembly simulation problem to a quadratic optimization problem. Additional constraints are also added to express the balance of the system. Problem formulation is shown as below:</p>
-<p><img src="\images\SMS-LCC\LCC-Formular.png" alt="LCC-Formular"></p>
-<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><p>Following figure shows different configurations of a simply assembly. Red dots indicates the contact regions between mating surfaces.</p>
-<p><img src="\images\SMS-LCC\Example.png" alt="Example"></p>
-<h1 id="Matlab-Code"><a href="#Matlab-Code" class="headerlink" title="Matlab Code"></a>Matlab Code</h1><p>The code is just the initial realization of the method. It can be improved from many aspects (some of them was pointed out in the published article), and the work is still on going. Another related article is still under writing, and all the Matlab codes will be available once the article is published.</p>
-<p>Currently, a shot video of simple example is available:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/-6INfS7PePk?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<blockquote>
+<p>Inscape3D<br><a href="http://www.inscape3d.com/en/" target="_blank" rel="noopener">http://www.inscape3d.com/en/</a></p>
+</blockquote>
+
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者: <a href="http://i7242.github.io">Xingyu YAN</a>
-            <p>原文链接: <a href="http://i7242.github.io/2018/09/01/Pub-LCC/">http://i7242.github.io/2018/09/01/Pub-LCC/</a>
-            <p>发表日期: <a href="http://i7242.github.io/2018/09/01/Pub-LCC/">September 1st 2018, 12:34:06</a>
+            <p>原文链接: <a href="http://i7242.github.io/2018/06/02/Pub-Virtual-metrology-laboratory-for-e-learning/">http://i7242.github.io/2018/06/02/Pub-Virtual-metrology-laboratory-for-e-learning/</a>
+            <p>发表日期: <a href="http://i7242.github.io/2018/06/02/Pub-Virtual-metrology-laboratory-for-e-learning/">June 2nd 2018, 5:23:47</a>
             <p>版权声明: 本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -431,12 +422,17 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2018/06/07/Pub-Generation-of-consistent-skin-model-shape-based-on-FEA-method/" title= Generation of Skin Model Shapes >
+                    <div class="nextTitle">Generation of Skin Model Shapes</div>
+                </a>
+            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2018/06/07/Pub-Generation-of-consistent-skin-model-shape-based-on-FEA-method/" title= Generation of Skin Model Shapes >
-                    <div class="prevTitle">Generation of Skin Model Shapes</div>
+                <a href= "/2018/05/31/Cusine/" title= Cusine >
+                    <div class="prevTitle">Cusine</div>
                 </a>
             
         </li>
@@ -550,7 +546,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Proposed-Solution"><span class="toc-number">2.</span> <span class="toc-text">Proposed Solution</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Example"><span class="toc-number">3.</span> <span class="toc-text">Example</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Matlab-Code"><span class="toc-number">4.</span> <span class="toc-text">Matlab Code</span></a></li></ol>
+        
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
