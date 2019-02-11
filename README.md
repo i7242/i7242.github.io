@@ -1,13 +1,49 @@
-# Xingyu YAN' Blog
+# **Xingyu YAN' Blog**
+
+---
 
 
 
 
+## Development of Virtual metrology for E-learning
+
+A Virtual Laboratory project was funded by ***Université de Bordeaux***.
+
+> I2M (Institut de Mécanique et d'Ingénierie)  
+https://www.i2m.u-bordeaux.fr/
+
+The Virtual Laboratory is designed for engineering student to exercese the use of metrology equipments.
+* Student can conduct simulation in this platform to enhance what they have learned.
+* The deviations on the part can be amplified to help student understand specifications and their application cases.
+* Various equipments will be introduced, including some high precision and expensive ones. Pre-exercise in virtual laboratory will reduce the risk of equipment broken.
+
+Following is a scene of the Virtual Laboratory, and a link to the video demo.
+
+<https://www.youtube.com/embed/c2Kuf2EE0kY>
+
+![VirtualLab](\resources\VL.png)
+
+In this work, I mainly contribute on the measurement simulations:
+* Provide a simplex algorithm in Lua.
+    * <https://i7242.github.io/Simplex-in-Lua/>
+* Customize optimization problem for different measurement equipments.
+    * The measurement is considered as an optimization problem, which minimize the distance between the measurement equipment and part. Following is the measurement principle for caliper.
+
+![Measurement Using Caliper](\resources\Caliper.png)
+
+The Virtual Laborator was developed based on Inscape3D platform (which is developed for serious games).
+
+> Inscape3D  
+http://www.inscape3d.com/en/
+
+In the following article, you can find more details about the project.
+
+> Ballu A, Yan X, Blanchard A, et al. Virtual metrology laboratory for e-learning[J]. Procedia CIRP, 2016, 43: 148-153.  
+https://www.sciencedirect.com/science/article/pii/S2212827116003929
 
 
 
-
-
+---
 
 ## Generation of Non-ideal Parts for Tolerance Analysis and Visualization
 
@@ -32,8 +68,7 @@ Here is a method that generates discrete part model with defects. A figure that 
 
 
 
-
-
+---
 
 ## About Me
 
