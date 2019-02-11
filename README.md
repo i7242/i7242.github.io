@@ -120,3 +120,8 @@ For the detailed problem formulation, please refer to the following article:
 > Yan X, Ballu A. Tolerance analysis using skin model shapes and linear complementarity conditions[J]. Journal of Manufacturing Systems, 2018, 48: 140-156.  
 https://www.sciencedirect.com/science/article/pii/S0278612518302048
 
+
+
+## Notes on Coding Exercise
+
+<https://i7242.github.io/NotesLeetCode/>
