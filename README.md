@@ -9,7 +9,7 @@
 
 
 
-# Generation of Non-ideal Parts for Tolerance Analysis and Visualization
+## Generation of Non-ideal Parts for Tolerance Analysis and Visualization
 
 The shape of real manufactured mechanical parts are non-ideal. Defects exist in their surfaces and dimensions. Some of them are large enough that can influence the perceived quality, while others influences the product functionality.
 
@@ -35,7 +35,7 @@ Here is a method that generates discrete part model with defects. A figure that 
 
 
 
-# About Me
+## About Me
 
 Hi, I'm Xingyu YAN. Welcome to my blog.
 
