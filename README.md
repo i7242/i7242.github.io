@@ -6,13 +6,9 @@ Currently, I'm a master student in computer science in SUNY at Buffalo. I'm inte
 
 Besides, I'm a mechanical engineer with expertise in coordinate metrology & precision engineering.
 
-Please feel free to contact me if you are interested in my works.
+Please feel free to contact me.
 
-Email: <xingyuyan@outlook.com>
-
-LinkedIn: <https://www.linkedin.com/in/xingyu-yan-8baa439b/>
-
-GitHub: <https://github.com/i7242>
+[Email](xingyuyan@outlook.com), [LinkedIn](https://www.linkedin.com/in/xingyu-yan-8baa439b/), [GitHub](https://github.com/i7242)
 
 
 ---
