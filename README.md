@@ -1,6 +1,6 @@
 # **Xingyu YAN' Blog**
 
-Hi, I'm Xingyu YAN. Welcome to my blog.
+Hi, welcome to my blog.
 
 Currently, I'm a master student in computer science in SUNY at Buffalo. I'm interested in Computer Vision, Computational Geometry, and Software Development to implement these thecniques in industry.
 
