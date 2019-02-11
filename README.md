@@ -10,7 +10,9 @@ Please feel free to contact me if you are interested in my works.
 
 Email: <xingyuyan@outlook.com>
 
-LinkedIn: <https://www.linkedin.com/in/xingyu-yan-8baa439b/> 
+LinkedIn: <https://www.linkedin.com/in/xingyu-yan-8baa439b/>
+
+GitHub: <https://github.com/i7242>
 
 
 ---
