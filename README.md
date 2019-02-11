@@ -1,7 +1,19 @@
 # **Xingyu YAN' Blog**
 
-===
+Hi, I'm Xingyu YAN. Welcome to my blog.
 
+Currently, I'm a master student in computer science in SUNY at Buffalo. I'm interested in Computer Vision, Computational Geometry, and Software Development to implement these thecniques in industry.
+
+Besides, I'm a mechanical engineer with expertise in coordinate metrology & precision engineering.
+
+Please feel free to contact me if you are interested in my works.
+
+Email: <xingyuyan@outlook.com>
+
+LinkedIn: <https://www.linkedin.com/in/xingyu-yan-8baa439b/> 
+
+
+---
 
 
 ## Development of Virtual metrology for E-learning
@@ -46,7 +58,7 @@ https://www.sciencedirect.com/science/article/pii/S2212827116003929
 
 
 
-===
+---
 
 ## Generation of Non-ideal Parts for Tolerance Analysis and Visualization
 
@@ -71,7 +83,7 @@ Here is a method that generates discrete part model with defects. A figure that 
 
 
 
-===
+---
 
 ## Assembly Simulation Using Non-ideal Part Models
 
@@ -108,20 +120,3 @@ For the detailed problem formulation, please refer to the following article:
 > Yan X, Ballu A. Tolerance analysis using skin model shapes and linear complementarity conditions[J]. Journal of Manufacturing Systems, 2018, 48: 140-156.  
 https://www.sciencedirect.com/science/article/pii/S0278612518302048
 
-
-
-===
-
-## About Me
-
-Hi, I'm Xingyu YAN. Welcome to my blog.
-
-Currently, I'm a master student in computer science in SUNY at Buffalo. I'm interested in Computer Vision, Computational Geometry, and Software Development to implement these thecniques in industry.
-
-Besides, I'm a mechanical engineer with expertise in coordinate metrology & precision engineering.
-
-Please feel free to contact me if you are interested in my works.
-
-Email: <xingyuyan@outlook.com>
-
-LinkedIn: <https://www.linkedin.com/in/xingyu-yan-8baa439b/> 
