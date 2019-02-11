@@ -7,11 +7,6 @@
 
 ## Development of Virtual metrology for E-learning
 
-A Virtual Laboratory project was funded by ***Université de Bordeaux***.
-
-> I2M (Institut de Mécanique et d'Ingénierie)  
-https://www.i2m.u-bordeaux.fr/
-
 The Virtual Laboratory is designed for engineering student to exercese the use of metrology equipments.
 * Student can conduct simulation in this platform to enhance what they have learned.
 * The deviations on the part can be amplified to help student understand specifications and their application cases.
@@ -27,11 +22,20 @@ In this work, I mainly contribute on the measurement simulations:
 * Provide a simplex algorithm in Lua.
     * <https://i7242.github.io/Simplex-in-Lua/>
 * Customize optimization problem for different measurement equipments.
-    * The measurement is considered as an optimization problem, which minimize the distance between the measurement equipment and part. Following is the measurement principle for caliper.
+    * The measurement is considered as an optimization problem, which minimize the distance between the measurement equipment and part.
+    * The part's position is fixed, and the equiment can have rigid translation and rotation.
+    * The caliper and its slider can have constrained relative displacement.
+
+Following is the measurement principle for caliper.
 
 ![Measurement Using Caliper](\resources\Caliper.png)
 
-The Virtual Laborator was developed based on Inscape3D platform (which is developed for serious games).
+The Virtual Laboratory project was funded by ***Université de Bordeaux***.
+
+> I2M (Institut de Mécanique et d'Ingénierie)  
+https://www.i2m.u-bordeaux.fr/
+
+It was developed based on Inscape3D platform (which is developed for serious games).
 
 > Inscape3D  
 http://www.inscape3d.com/en/
