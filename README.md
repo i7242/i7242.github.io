@@ -16,7 +16,7 @@ The shape of real manufactured mechanical parts are non-ideal. Defects exist in 
 In precision engineering, we design, analysis and control the geometrical and dimensional tolrances to guarantee the product's quality. To achive more precise and realiable simulation result, the form defect on part surface need to be considered.
 
 Here is a method that generate discrete part model with defects. A figure that concludes the generation process is shown as below:
-![SMSGen](\images\SMS-LCC\SMSGen.png)
+![SMSGen](\resources\SMSGen.png)
 
 
 
