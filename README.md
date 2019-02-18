@@ -23,6 +23,8 @@ matching, etc.
 Project under development: <https://i7242.github.io/Small-Candidate-Set-for-Pattern-Search/>
 
 
+---
+
 ## Development of Virtual metrology for E-learning
 
 The Virtual Laboratory is designed for engineering student to exercese the use of metrology equipments.
