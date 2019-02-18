@@ -2,10 +2,10 @@
 
 Hi, welcome to my blog.
 
-Currently, I'm a master student in computer science in SUNY at Buffalo. I'm interested in Computer Vision, Computational Geometry, and Software Development to implement these thecniques in industry.
+Currently, I'm a master student in computer science in SUNY at Buffalo. I'm interested in Computer Vision, Computational Geometry, and Software Development to implement these thecniques in industry.  
 Besides, I'm a mechanical engineer with expertise in coordinate metrology & precision engineering.
 
-Please feel free to contact me.
+Please feel free to contact me.  
 Email:      <xingyuyan@outlook.com>  
 LinkedIn:   <https://www.linkedin.com/in/xingyu-yan-8baa439b/>  
 GitHub:     <https://github.com/i7242>
