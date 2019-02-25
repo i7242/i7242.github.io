@@ -22,6 +22,10 @@ matching, etc.
 
 Project under development: <https://i7242.github.io/Small-Candidate-Set-for-Pattern-Search/>
 
+Current Progress:
+* Generate reference point set **P**, from data background and template.
+* Generate **Epsilon-Net**, which approximates the reference point set **P**.
+* ...
 
 ---
 
