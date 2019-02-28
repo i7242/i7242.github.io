@@ -29,9 +29,9 @@ Current Progress:
 
 ---
 
-## Development of Virtual metrology for E-learning
+## Development of Virtual Metrology Laboratory for E-learning
 
-The Virtual Laboratory is designed for engineering student to exercese the use of metrology equipments.
+The Virtual Metrology Laboratory is designed for engineering student to exercese the use of metrology equipments.
 * Student can conduct simulation in this platform to enhance what they have learned.
 * The deviations on the part can be amplified to help student understand specifications and their application cases.
 * Various equipments will be introduced, including some high precision and expensive ones. Pre-exercise in virtual laboratory will reduce the risk of equipment broken.
