@@ -25,6 +25,7 @@ Project under development: <https://i7242.github.io/Small-Candidate-Set-for-Patt
 Current Progress:
 * Generate reference point set **P**, from data background and template.
 * Generate **Epsilon-Net**, which approximates the reference point set **P**.
+* Well-separated pair decomposition. **Eixt bugs, need to fix it**.
 * ...
 
 ---
