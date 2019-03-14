@@ -2,7 +2,7 @@
 
 Hi, welcome to my blog.
 
-Currently, I'm a master student in computer science in SUNY at Buffalo. I'm interested in Computer Vision, Computational Geometry, and Software Development to implement these thecniques in industry.  
+Currently, I'm a master student in computer science in SUNY at Buffalo. I'm interested in Software Development & Computer Vision.  
 Besides, I'm a mechanical engineer with expertise in coordinate metrology & precision engineering.
 
 Please feel free to contact me.  
