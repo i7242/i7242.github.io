@@ -27,7 +27,7 @@ Current Progress:
 * Well-separated pair decomposition.
 * Generated distance tree.
 * Will generate box tree, then sampling from two types of regions.
-* Project finished.
+
 ---
 
 ## Development of Virtual Metrology Laboratory for E-learning
