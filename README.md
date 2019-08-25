@@ -13,24 +13,6 @@ GitHub:     <https://github.com/i7242>
 
 ---
 
-## 18 Feb 2019 Generate Small Candidate Set for Translational Pattern Search
-* Implement an algorithm developed by project director Jinhui Xu.
-* The algorithm generate small candidate set (size O(nlog 2 n) ) from original data. Based on this
-small candidate set, the pattern matching time can be largely reduced.
-* The algorithm has a wide range of application, such as 3D structure extraction, image pattern
-matching, etc.
-
-Project under development: <https://i7242.github.io/Small-Candidate-Set-for-Pattern-Search/>
-
-Current Progress:
-* Generate reference point set **P**, from data background and template.
-* Generate **Epsilon-Net**, which approximates the reference point set **P**.
-* Well-separated pair decomposition.
-* Generated distance tree.
-* Will generate box tree, then sampling from two types of regions.
-
----
-
 ## Development of Virtual Metrology Laboratory for E-learning
 
 The Virtual Metrology Laboratory is designed for engineering student to exercese the use of metrology equipments.
@@ -135,10 +117,3 @@ For the detailed problem formulation, please refer to the following article:
 > Yan X, Ballu A. Tolerance analysis using skin model shapes and linear complementarity conditions[J]. Journal of Manufacturing Systems, 2018, 48: 140-156.  
 https://www.sciencedirect.com/science/article/pii/S0278612518302048
 
-
-
----
-
-## Notes on Coding Exercise
-
-<https://i7242.github.io/NotesLeetCode/>
