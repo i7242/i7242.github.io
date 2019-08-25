@@ -2,8 +2,7 @@
 
 Hi, welcome to my blog.
 
-Currently, I'm a master student in computer science in SUNY at Buffalo. I'm interested in Software Development & Computer Vision.  
-Besides, I'm a mechanical engineer with expertise in coordinate metrology & precision engineering.
+Currently, I'm a master student in computer science in SUNY at Buffalo. Besides, I'm a mechanical engineer with expertise in coordinate metrology & precision engineering.
 
 Please feel free to contact me.  
 Email:      <xingyuyan@outlook.com>  
