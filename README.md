@@ -1,9 +1,10 @@
 # **About
 
-Hi, welcome to have a look at my works.
+Hi, welcome to my github page.  
 
-I have backgrounds in both Mechanical Engineering & Computer Science.  
-My current work is developing micro services on AWS, full stack and mainly use Java.  
+My current job is developing micro services on AWS, full stack and mainly use Java.  
+
+But, besides, I'm also interested in Mechanical Engineering & Financial Investment.  
 Recently, I'm also learnign Julia and looking for some interesting projects.  
 
 Please feel free to contact me.  
