@@ -6,6 +6,9 @@ Please feel free to contact me.
 Email:      <xingyuyan@outlook.com>  
 LinkedIn:   <https://www.linkedin.com/in/xingyu-yan-8baa439b/>  
 
+![i7242's stats](https://github-readme-stats.vercel.app/api?username=i7242&theme=merko)  
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=i7242&theme=merko)  
+
 ---
 
 # Development of Virtual Metrology Laboratory for E-learning
