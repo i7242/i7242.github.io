@@ -1,18 +1,18 @@
-# **About Me**
+# **About
 
-Hi, welcome to my blog.
+Hi, welcome to have a look at my works.
 
-Currently, I'm a master student in computer science in SUNY at Buffalo. Besides, I'm a mechanical engineer with expertise in coordinate metrology & precision engineering.
+I have backgrounds in both Mechanical Engineering & Computer Science.  
+My current work is developing micro services on AWS, full stack and mainly use Java.  
+Recently, I'm also learnign Julia and looking for some interesting projects.  
 
 Please feel free to contact me.  
 Email:      <xingyuyan@outlook.com>  
 LinkedIn:   <https://www.linkedin.com/in/xingyu-yan-8baa439b/>  
-GitHub:     <https://github.com/i7242>
-
 
 ---
 
-## Development of Virtual Metrology Laboratory for E-learning
+# Development of Virtual Metrology Laboratory for E-learning
 
 The Virtual Metrology Laboratory is designed for engineering student to exercese the use of metrology equipments.
 * Student can conduct simulation in this platform to enhance what they have learned.
@@ -56,7 +56,7 @@ https://www.sciencedirect.com/science/article/pii/S2212827116003929
 
 ---
 
-## Generation of Non-ideal Parts for Tolerance Analysis and Visualization
+# Generation of Non-ideal Parts for Tolerance Analysis and Visualization
 
 The shape of real manufactured mechanical parts are non-ideal. Defects exist in their surfaces and dimensions. Some of them are large enough that can influence the perceived quality, while others influences the product functionality.
 
@@ -81,7 +81,7 @@ Here is a method that generates discrete part model with defects. A figure that 
 
 ---
 
-## Assembly Simulation Using Non-ideal Part Models
+# Assembly Simulation Using Non-ideal Part Models
 
 Using the generated non-ideal part models, we can conduct assembly simulation considering form defects.
 
