@@ -2,9 +2,9 @@
 title = "Simple PLA"
 hascode = true
 date = Date(2021, 01, 03)
-rss = "Review machine learning and PLA. Xingyu Yan 2020-01-03."
+rss = "Review machine learning and PLA. Xingyu Yan 2021-01-03."
 +++
-@def tags = ["syntax", "code"]
+@def tags = ["julia", "code"]
 
 # Simple PLA
 

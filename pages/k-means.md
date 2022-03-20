@@ -4,7 +4,7 @@ hascode = true
 date = Date(2020, 12, 19)
 rss = "Review of k-means with Julia. Xingyu Yan 2020-12-19."
 +++
-@def tags = ["syntax", "code"]
+@def tags = ["julia", "code"]
 
 # K-means Clustering
 
