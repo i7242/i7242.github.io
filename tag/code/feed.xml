@@ -1,25 +1,61 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-<channel>
-  <title>i7242 | Xingyu Yan</title>
-  <description><![CDATA[Code, Blog, and ...
-]]></description>
-  <link>https://i7242.github.io/</link>
-  <atom:link href="https://i7242.github.io/tag/code/feed.xml" rel="self" type="application/rss+xml" />
-  <item>
-    <title>Simple PLA</title>
-    <link>https://i7242.github.io/pages/simple_pla/</link>
-    <description><![CDATA[Review machine learning and PLA. Xingyu Yan 2020-01-03.
-<br><a href="https://i7242.github.io/pages/simple_pla/">Read more</a>]]></description>
-    <guid>https://i7242.github.io/pages/simple_pla/</guid>
-    <pubDate>Sun, 3 Jan 2021 00:00:00 UT</pubDate>
-  </item>
-  <item>
-    <title>K-Means</title>
-    <link>https://i7242.github.io/pages/k-means/</link>
-    <description><![CDATA[Review of k-means with Julia. Xingyu Yan 2020-12-19.
-<br><a href="https://i7242.github.io/pages/k-means/">Read more</a>]]></description>
-    <guid>https://i7242.github.io/pages/k-means/</guid>
-    <pubDate>Sat, 19 Dec 2020 00:00:00 UT</pubDate>
-  </item>
-</channel>
-</rss>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:media="http://search.yahoo.com/mrss/"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:georss="http://www.georss.org/georss">
+
+  <channel>
+    <title>
+      <![CDATA[  i7242 | Xingyu Yan  ]]>
+    </title>
+    <link> https://i7242.github.io </link>
+    <description>
+      <![CDATA[  Code, Blog, and ...  ]]>
+    </description>
+    <atom:link
+      href="https://i7242.github.io/feed.xml"
+      rel="self"
+      type="application/rss+xml" />
+
+
+<item>
+  <title>
+    <![CDATA[  Simple PLA  ]]>
+  </title>
+  <link> https://i7242.github.io/pages/simple_pla/index.html </link>
+  <guid> https://i7242.github.io/pages/simple_pla/index.html </guid>
+  <description>
+    <![CDATA[  Review machine learning and PLA. Xingyu Yan 2021-01-03.  ]]>
+  </description>  
+    
+  <pubDate>Sun, 03 Jan 2021 00:00:00 +0000</pubDate>  
+  
+  
+  <atom:author>
+    <atom:name>i7242 | Xingyu Yan</atom:name>
+  </atom:author>
+        
+</item>
+
+<item>
+  <title>
+    <![CDATA[  K-Means  ]]>
+  </title>
+  <link> https://i7242.github.io/pages/k-means/index.html </link>
+  <guid> https://i7242.github.io/pages/k-means/index.html </guid>
+  <description>
+    <![CDATA[  Review of k-means with Julia. Xingyu Yan 2020-12-19.  ]]>
+  </description>  
+    
+  <pubDate>Sat, 19 Dec 2020 00:00:00 +0000</pubDate>  
+  
+  
+  <atom:author>
+    <atom:name>i7242 | Xingyu Yan</atom:name>
+  </atom:author>
+        
+</item>
+</channel></rss>

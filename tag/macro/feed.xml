@@ -39,42 +39,4 @@
   </atom:author>
         
 </item>
-
-<item>
-  <title>
-    <![CDATA[  Simple PLA  ]]>
-  </title>
-  <link> https://i7242.github.io/pages/simple_pla/index.html </link>
-  <guid> https://i7242.github.io/pages/simple_pla/index.html </guid>
-  <description>
-    <![CDATA[  Review machine learning and PLA. Xingyu Yan 2021-01-03.  ]]>
-  </description>  
-    
-  <pubDate>Sun, 03 Jan 2021 00:00:00 +0000</pubDate>  
-  
-  
-  <atom:author>
-    <atom:name>i7242 | Xingyu Yan</atom:name>
-  </atom:author>
-        
-</item>
-
-<item>
-  <title>
-    <![CDATA[  K-Means  ]]>
-  </title>
-  <link> https://i7242.github.io/pages/k-means/index.html </link>
-  <guid> https://i7242.github.io/pages/k-means/index.html </guid>
-  <description>
-    <![CDATA[  Review of k-means with Julia. Xingyu Yan 2020-12-19.  ]]>
-  </description>  
-    
-  <pubDate>Sat, 19 Dec 2020 00:00:00 +0000</pubDate>  
-  
-  
-  <atom:author>
-    <atom:name>i7242 | Xingyu Yan</atom:name>
-  </atom:author>
-        
-</item>
 </channel></rss>
