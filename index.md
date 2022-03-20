@@ -1,7 +1,7 @@
 @def title = "i7242 | Xingyu YAN"
 @def tags = ["blog"]
 
-# [Request Retry by Macro](/pages/retry_macro)
+# [Retry by Macro](/pages/retry_macro)
 Use macro to enable auto retry when request failed [[example]](/pages/retry_macro).
 
 # [Simple PLA](/pages/simple_pla)

@@ -6,7 +6,7 @@ rss = "Retry by Macro. Xingyu Yan 2022-03-20."
 +++
 @def tags = ["julia", "macro"]
 
-# Retry failed request by Julia Macro
+# Retry failed request by Julia macro
 
 When build micro services, we call many dependencies to gather data. Most of the time we will have 3 times of exponential backoff retry. In Java, we can create an annotation like `@Retry` to enable auto retry when `RetryableException` was thrown.
 
