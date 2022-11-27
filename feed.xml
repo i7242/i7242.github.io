@@ -23,10 +23,67 @@
 
 <item>
   <title>
+    <![CDATA[  Notes  ]]>
+  </title>
+  <link> https://i7242.github.io/pages/notes/index.html </link>
+  <guid> https://i7242.github.io/pages/notes/index.html </guid>
+  <description>
+    <![CDATA[  notes  ]]>
+  </description>  
+    
+  <pubDate>Sat, 26 Nov 2022 00:00:00 +0000</pubDate>  
+  
+  
+  <atom:author>
+    <atom:name>i7242 | Xingyu Yan</atom:name>
+  </atom:author>
+        
+</item>
+
+<item>
+  <title>
+    <![CDATA[  La Chanson De L&#39;Année  ]]>
+  </title>
+  <link> https://i7242.github.io/pages/la_chanson_de_lannee/index.html </link>
+  <guid> https://i7242.github.io/pages/la_chanson_de_lannee/index.html </guid>
+  <description>
+    <![CDATA[  Idea from TF1...  ]]>
+  </description>  
+    
+  <pubDate>Sat, 26 Nov 2022 00:00:00 +0000</pubDate>  
+  
+  
+  <atom:author>
+    <atom:name>i7242 | Xingyu Yan</atom:name>
+  </atom:author>
+        
+</item>
+
+<item>
+  <title>
+    <![CDATA[  投资理财  ]]>
+  </title>
+  <link> https://i7242.github.io/pages/投资理财/index.html </link>
+  <guid> https://i7242.github.io/pages/投资理财/index.html </guid>
+  <description>
+    <![CDATA[  投资理财  ]]>
+  </description>  
+    
+  <pubDate>Sat, 26 Nov 2022 00:00:00 +0000</pubDate>  
+  
+  
+  <atom:author>
+    <atom:name>i7242 | Xingyu Yan</atom:name>
+  </atom:author>
+        
+</item>
+
+<item>
+  <title>
     <![CDATA[  Retry by Macro  ]]>
   </title>
-  <link> https://i7242.github.io/pages/retry_macro/index.html </link>
-  <guid> https://i7242.github.io/pages/retry_macro/index.html </guid>
+  <link> https://i7242.github.io/pages/notes/retry_macro/index.html </link>
+  <guid> https://i7242.github.io/pages/notes/retry_macro/index.html </guid>
   <description>
     <![CDATA[  Retry by Macro. Xingyu Yan 2022-03-20.  ]]>
   </description>  
@@ -44,8 +101,8 @@
   <title>
     <![CDATA[  Simple PLA  ]]>
   </title>
-  <link> https://i7242.github.io/pages/simple_pla/index.html </link>
-  <guid> https://i7242.github.io/pages/simple_pla/index.html </guid>
+  <link> https://i7242.github.io/pages/notes/simple_pla/index.html </link>
+  <guid> https://i7242.github.io/pages/notes/simple_pla/index.html </guid>
   <description>
     <![CDATA[  Review machine learning and PLA. Xingyu Yan 2021-01-03.  ]]>
   </description>  
@@ -63,8 +120,8 @@
   <title>
     <![CDATA[  K-Means  ]]>
   </title>
-  <link> https://i7242.github.io/pages/k-means/index.html </link>
-  <guid> https://i7242.github.io/pages/k-means/index.html </guid>
+  <link> https://i7242.github.io/pages/notes/k-means/index.html </link>
+  <guid> https://i7242.github.io/pages/notes/k-means/index.html </guid>
   <description>
     <![CDATA[  Review of k-means with Julia. Xingyu Yan 2020-12-19.  ]]>
   </description>  
