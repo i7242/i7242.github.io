@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:media="http://search.yahoo.com/mrss/"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:georss="http://www.georss.org/georss">
+
+  <channel>
+    <title>
+      <![CDATA[  i7242 | Xingyu Yan  ]]>
+    </title>
+    <link> https://i7242.github.io </link>
+    <description>
+      <![CDATA[  Code, Blog, and ...  ]]>
+    </description>
+    <atom:link
+      href="https://i7242.github.io/feed.xml"
+      rel="self"
+      type="application/rss+xml" />
+
+
+<item>
+  <title>
+    <![CDATA[  推薦  ]]>
+  </title>
+  <link> https://i7242.github.io/pages/推薦/index.html </link>
+  <guid> https://i7242.github.io/pages/推薦/index.html </guid>
+  <description>
+    <![CDATA[  推薦  ]]>
+  </description>  
+    
+  <pubDate>Thu, 02 Feb 2023 00:00:00 +0000</pubDate>  
+  
+  
+  <atom:author>
+    <atom:name>i7242 | Xingyu Yan</atom:name>
+  </atom:author>
+        
+</item>
+</channel></rss>
