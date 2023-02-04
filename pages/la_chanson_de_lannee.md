@@ -8,3 +8,11 @@ rss = "Idea from TF1..."
 
 # La Chanson De L'Année
 
+## 2022
+原諒 - 張玉華
+
+[![原諒]
+(https://img.youtube.com/vi/7UtrGVLGpjY/maxresdefault.jpg)]
+(https://www.youtube.com/watch?v=7UtrGVLGpjY)
+
+本科時候從室友mp3里聽到的，現在能循環一天。。。
