@@ -8,6 +8,13 @@ rss = "Idea from TF1..."
 
 # La Chanson De L'Année
 
+## 2023
+
+Hello - 家入レオ
+[![Hello]
+(https://img.youtube.com/vi/z-09Nz323jw/maxresdefault.jpg)]
+(https://www.youtube.com/watch?v=z-09Nz323jw)
+
 ## 2022
 原諒 - 張玉華
 
